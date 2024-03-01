@@ -1,22 +1,19 @@
+# General
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+secrets.tfvars
+crash.log
+.terraform/
+*.plan
+*.tfplan
+*.tfplan.json
+
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# Crash log files
-crash.log
-
-# Exclude all .tfvars files, which might contain sensitive data, such as
-# password, private keys, and other secrets. These should not be part of version
-# control as they are data points which are potentially sensitive and subject
-# to change depending on the environment.
-*.tfvars
-*.tfvars.json
-
-# Ignore override files as they are usually used to override resources locally and should
-# not be shared with others
+# Exclude override files as they are usually used for local development overrides
 override.tf
 override.tf.json
 *_override.tf
