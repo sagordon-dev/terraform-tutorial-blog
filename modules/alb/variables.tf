@@ -12,3 +12,9 @@ variable "vpc_id" {
   description = "The VPC ID where the resources are deployed"
   type        = string
 }
+
+variable "environment" {
+  description = "The environment where the resources are deployed (dev or prod)"
+  type        = string
+  default     = "dev"
+}
