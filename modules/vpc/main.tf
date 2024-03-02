@@ -69,7 +69,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_eip" "nat" {
-  vpc = true
+  # Remove the deprecated "vpc" attribute
 }
 
 resource "aws_nat_gateway" "main" {
