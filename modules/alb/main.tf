@@ -27,3 +27,5 @@ resource "aws_lb_listener" "front_end" {
     target_group_arn = aws_alb_target_group.app.arn
   }
 }
+
+
