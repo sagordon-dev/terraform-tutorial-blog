@@ -1,5 +1,5 @@
 module "vpc_dev" {
-  source     = "../../modules/vpc"
+  source     = "../../modules/dev"
   cidr_block = var.vpc_cidr
 }
 
@@ -11,8 +11,8 @@ module "ec2_dev" {
 }
 
 module "alb_dev" {
-  source         = "../../modules/alb"
+  source         = "../../modules/dev"
   subnets        = module.vpc_dev.public_subnets # Adjust based on the module's output
-  security_group = var.alb_security_group
+  security_group = var.dev_security_group
   vpc_id         = module.vpc_dev.vpc_id
 }
