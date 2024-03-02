@@ -4,7 +4,7 @@ module "vpc_dev" {
 }
 
 module "ec2_dev" {
-  source        = "../../modules/ec2"
+  source        = "../../modules/dev"
   ami_id        = var.ami_id
   instance_type = var.instance_type
   subnet_id     = module.vpc_dev.subnets[0] # Assuming VPC module returns a list of subnets
