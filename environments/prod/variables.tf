@@ -27,4 +27,3 @@ variable "availability_zones" {
   description = "A list of availability zones in which to create the subnets."
   type        = list(string)
 }
-
