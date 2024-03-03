@@ -10,8 +10,8 @@ module "ec2_dev" {
   source         = "../../modules/ec2"
   ami_id         = var.ami_id
   instance_type  = var.instance_type
-  subnets        = [module.vpc_dev.subnets[0]] # Assuming VPC module returns a list of subnets 
-  subnet_id      = module.vpc_dev.subnets[0]   # Assuming VPC module returns a list of subnets
+  subnets        = [module.vpc_dev.subnets[0], module.vpc_dev.subnets[1]]
+  subnet_id      = module.vpc_dev.subnets[0]
   security_group = aws_security_group.dev_security_group.id
 }
 
