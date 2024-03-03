@@ -12,8 +12,11 @@ resource "aws_lb" "app_lb" {
   name               = "app-lb"
   internal           = false
   load_balancer_type = "application"
-  subnets            = var.subnets
   security_groups    = [var.security_group]
+
+  subnets            = [var.subnets[0], var.subnets[1]]
+
+  enable_deletion_protection = false
 
   tags = {
     Name = "app-lb"
