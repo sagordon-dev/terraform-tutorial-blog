@@ -1,4 +1,3 @@
-```markdown
 # Terraform Cloud Infrastructure Project
 
 This repository contains the Terraform configurations for a scalable and modular cloud infrastructure on AWS. It's designed to demonstrate how to use Terraform to provision a VPC, subnets, an Application Load Balancer (ALB), and EC2 instances in a structured and reusable manner.
@@ -78,7 +77,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - This project was inspired by the need to demonstrate best practices in cloud infrastructure provisioning using Terraform.
 - Thanks to the Terraform community for providing extensive documentation and resources.
-```
 
 ### Notes for Customization:
 
