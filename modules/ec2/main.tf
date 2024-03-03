@@ -7,3 +7,15 @@ resource "aws_instance" "app_server" {
     Name = "AppServer"
   }
 }
+
+resource "aws_lb" "app_lb" {
+  name               = "app-lb"
+  internal           = false
+  load_balancer_type = "application"
+  subnets            = var.subnets
+  security_groups    = [var.security_group]
+
+  tags = {
+    Name = "app-lb"
+  }
+}
