@@ -17,7 +17,7 @@ resource "aws_lb" "app_lb" {
   security_groups    = [var.security_group]
   subnets            = var.subnets
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false 
 
   tags = {
     Environment = "production"
