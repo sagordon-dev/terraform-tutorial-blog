@@ -62,11 +62,12 @@ variable "volume_size" {
   type        = number
 }
 
-variable "volume_type" {
-  description = "The type of volume"
-}
-
 variable "artifactory_key_name" {
   description = "The name of the key pair to use for the Artifactory server"
   type        = string
 }
+
+variable "volume_type" {
+  description = "The type of volume"
+}
+
