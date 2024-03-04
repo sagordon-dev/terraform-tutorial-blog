@@ -1,16 +1,7 @@
-variable "volume_size" {
-  description = "The size of the volume in GiBs"
-  default     = 300
-}
-
-variable "volume_type" {
-  description = "The type of volume"
-  default     = "gp3"
-}
-
 resource "aws_instance" "artifactory_server" {
   ami           = var.artifactory_ami_id
   instance_type = var.artifactory_instance_type
+  key_name = aws_key_pair.artifactory_key_pair.key_name
   subnet_id      = var.subnet_id
 
   root_block_device {
@@ -23,13 +14,10 @@ resource "aws_instance" "artifactory_server" {
     Environment = "dev"
   }
 }
-locals {
-  artifactory_public_key = file("~/.ssh/dev-key.pub")
-}
 
-resource "aws_key_pair" "deployer" {
-  key_name   = var.artifactory_key_name
-  public_key = local.artifactory_public_key
+resource "aws_key_pair" "artifactory_key_pair" {
+  public_key = file("~/.ssh/artifactory_key_pair.pem.pub")
+  key_name   = "artifactory_key_pair"
 }
 
 resource "aws_security_group" "dev_security_group" {
@@ -50,6 +38,13 @@ resource "aws_security_group" "dev_security_group" {
     protocol    = "tcp"
     cidr_blocks = var.allowed_cidr_blocks
   }
+
+  ingress {
+  from_port   = 22
+  to_port     = 22
+  protocol    = "tcp"
+  cidr_blocks = var.allowed_cidr_blocks
+}
 
   egress {
     from_port   = 0
