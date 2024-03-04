@@ -32,3 +32,13 @@ variable "vpc_id" {
   description = "The ID of the VPC where the Artifactory server will be deployed"
   type        = string
 }
+
+variable "volume_size" {
+  description = "The size of the volume in GiBs"
+  default     = 300
+}
+
+variable "volume_type" {
+  description = "The type of volume"
+  default     = "gp3"
+}
