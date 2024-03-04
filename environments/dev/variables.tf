@@ -57,16 +57,12 @@ variable "artifactory_allowed_cidr_blocks" {
   type        = list(string)
 }
 
+variable "volume_type" {
+  description = "The type of volume"
+}
+
 variable "volume_size" {
   description = "The size of the volume in GB"
   type        = number
 }
 
-variable "volume_type" {
-  description = "The type of volume"
-}
-
-variable "artifactory_key_name" {
-  description = "The name of the key pair to use for the Artifactory server"
-  type        = string
-}
